@@ -95,4 +95,6 @@ then
 	echo -e "MySQL Server $R password not set.$N Setting now..." | tee -a $LOG_FILE
 	mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
 	VALIDATE $? "Seting root password for mysql service"
+else
+	echo -e "MySQL Server root password already set." &>> $LOG_FILE
 fi
