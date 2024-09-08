@@ -5,7 +5,7 @@ LOG_FOLDER="/var/log/shell-auto/"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d::%H:%M:%S)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
-USERID=$(id -u)
+USERID=$(($(id -u)))
 
 mkdir -p $LOG_FOLDER
 
