@@ -69,7 +69,7 @@ VALIDATE $? "Unarchiving backend code" "Failed to unzip. Exiting..."
 npm install &>> $LOG_FILE
 VALIDATE $? "Installing node dependencies" "Failed to install. Exiting..."
 
-cp /home/ec2-user/shell-auto/backend.service /etc/systemd/system/backend.service &>> $LOG_FILE
+cp /home/ec2-user/sh-auto/backend.service /etc/systemd/system/backend.service &>> $LOG_FILE
 VALIDATE $? "Creating systemctl service for backend" "Failed to create. Exiting..."
 
 systemctl daemon-reload &>> $LOG_FILE
