@@ -66,9 +66,9 @@ VALIDATE(){
 
 	if [ $1 -ne 0 ]
 	then
-		echo "$2 ... $R FAILED $N" | tee -a $LOG_FILE
+		echo -e "$2 ... $R FAILED $N" | tee -a $LOG_FILE
 	else
-		echo "$2 ... $G SUCCESS $N" | tee -a $LOG_FILE
+		echo -e "$2 ... $G SUCCESS $N" | tee -a $LOG_FILE
 	fi
 }
 
