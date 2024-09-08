@@ -89,7 +89,7 @@ systemctl start mysqld &>> $LOG_FILE
 VALIDATE $? "Starting mysql service"
 
 #Set root password if not set already
-mysql -h mysqlp.mahdo.site -u root -pExpenseApp@1 -e "show databases;" &>> $LOG_FILE
+mysql -h srvp.mahdo.site -u root -pExpenseApp@1 -e "show databases;" &>> $LOG_FILE
 if [ $? -ne 0 ]
 then
 	echo -e "MySQL Server $R password not set.$N Setting now..." | tee -a $LOG_FILE
