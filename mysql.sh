@@ -88,8 +88,8 @@ VALIDATE $? "Enabling mysql service"
 systemctl start mysqld &>> $LOG_FILE
 VALIDATE $? "Starting mysql service"
 
-#Set root password for MySQL Service &>> $LOG_FILE
-mysql_secure_installation --set-root-pass ExpenseApp@1
+#Set root password for MySQL Service
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
 VALIDATE $? "Seting root password for mysql service"
 
 
