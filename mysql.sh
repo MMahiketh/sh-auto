@@ -81,14 +81,14 @@ CHECK_USER
 CHECK_PKG $PACKAGE
 
 #Enable MySQL Service
-systemctl enable mysqld
+systemctl enable mysqld  &>> $LOG_FILE
 VALIDATE $? "Enabling mysql service"
 
 #Start MySQL Service
-systemctl start mysqld
+systemctl start mysqld &>> $LOG_FILE
 VALIDATE $? "Starting mysql service"
 
-#Set root password for MySQL Service
+#Set root password for MySQL Service &>> $LOG_FILE
 mysql_secure_installation --set-root-pass ExpenseApp@1
 VALIDATE $? "Seting root password for mysql service"
 
