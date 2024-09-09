@@ -75,14 +75,17 @@ VALIDATE $? "Creating systemctl service for backend" "Failed to create. Exiting.
 systemctl daemon-reload &>> $LOG_FILE
 VALIDATE $? "Reloading systemctl services" "Failed to reload. Exiting..."
 
+systemctl enable backend &>> $LOG_FILE
+VALIDATE $? "Enabling backend service" "Failed to enable. Exiting..."
+
+systemctl start backend &>> $LOG_FILE
+VALIDATE $? "Starting backend service" "Failed to start. Exiting..."
+
 dnf install mysql -y &>> $LOG_FILE
 VALIDATE $? "Installing mysql client" "Failed to install. Exiting..."
 
 mysql -h srvp.mahdo.site -uroot -pExpenseApp@1 < /app/schema/backend.sql &>> $LOG_FILE
 VALIDATE $? "Creating database" "Failed to create database. Exiting..."
 
-systemctl start backend &>> $LOG_FILE
-VALIDATE $? "Starting backend service" "Failed to start. Exiting..."
-
-systemctl enable backend &>> $LOG_FILE
-VALIDATE $? "Enabling backend service" "Failed to enable. Exiting..."
+systemctl restart backend &>> $LOG_FILE
+VALIDATE $? "Restart backend service" "Failed to start. Exiting..."
