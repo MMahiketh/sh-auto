@@ -53,7 +53,7 @@ cd /usr/share/nginx/html/; unzip /tmp/frontend.zip &>> $LOG_FILE
 VALIDATE $? "Unarchiving frontend code" "Failed to unzip. Exiting..."
 
 cp /home/ec2-user/sh-auto/expense.conf /etc/nginx/default.d/expense.conf &>> $LOG_FILE
-VALIDATE $? "Creating configuration file in nginx for frontend" "Failed to create. Exiting..."
+VALIDATE $? "Creating configuration file for frontend" "Failed to create. Exiting..."
 
 systemctl restart nginx &>> $LOG_FILE
 VALIDATE $? "Restarting nginx service" "Failed to restart. Exiting..."
