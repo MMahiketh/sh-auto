@@ -84,7 +84,7 @@ VALIDATE $? "Starting backend service" "Failed to start. Exiting..."
 dnf install mysql -y &>> $LOG_FILE
 VALIDATE $? "Installing mysql client" "Failed to install. Exiting..."
 
-mysql -h srvp.mahdo.site -uroot -pExpenseApp@1 < /app/schema/backend.sql &>> $LOG_FILE
+mysql -h dbp.mahdo.site -uroot -pExpenseApp@1 < /app/schema/backend.sql &>> $LOG_FILE
 VALIDATE $? "Creating database" "Failed to create database. Exiting..."
 
 systemctl restart backend &>> $LOG_FILE
